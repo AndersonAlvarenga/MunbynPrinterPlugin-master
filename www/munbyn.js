@@ -16,7 +16,11 @@ var BTPrinter = {
     },
     solicitaPermissaoScan: function (fnSuccess, fnError) {
         exec(fnSuccess, fnError, 'MunbynWrapper', 'solicitaPermissaoScan', [])
-    }
+    },
+    seachPermissionScan: function(fnSuccess, fnError) {
+           exec(fnSuccess, fnError, 'MunbynWrapper', 'seachPermissionScan', [])
+
+       }
 
 };
 

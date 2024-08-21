@@ -155,7 +155,37 @@ public class MunbynWrapper extends CordovaPlugin {
             }
 
             return true;
-        }
+        }else{
+                if(action.equals("seachPermissionScan")){
+                    Log.e(LOG_TAG, "Entrou");
+                    JSONArray json = new JSONArray();
+                    Hashtable map = new Hashtable();
+                    try{
+                        if(
+                                Build.VERSION.SDK_INT < Build.VERSION_CODES.S ||
+                                        cordova.hasPermission(Manifest.permission.BLUETOOTH_SCAN)
+                        ){
+                            Log.e(LOG_TAG, "Permissao True");
+                            map.put("PermissaosCAN", true);
+
+                        }else{
+                            map.put("PermissaoSCAN", false);
+                            Log.e(LOG_TAG, "Permissao False");
+                        }
+                        JSONObject jObj = new JSONObject(map);
+                        callbackContext.success(jObj);
+                    }catch(Exception e){
+                        map.put("PermissaoConnect", false);
+                        map.put("Erro", e.getMessage());
+                        Log.e(LOG_TAG, "Erro"+e.getMessage());
+                        JSONObject jObj = new JSONObject(map);
+                        callbackContext.error(jObj);
+                    }
+                    return true;
+
+                }
+
+            }
       return true;
     }
     
