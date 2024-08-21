@@ -108,7 +108,8 @@ public class MunbynWrapper extends CordovaPlugin {
         else if (action.equals("list")) {
             listBT(callbackContext);
             return true;
-        }else if(action.equals("seachPermissionConnect")){
+        }else 
+        if(action.equals("seachPermissionConnect")){
             Log.e(LOG_TAG, "Entrou");
             JSONArray json = new JSONArray();
             Hashtable map = new Hashtable();
@@ -144,13 +145,27 @@ public class MunbynWrapper extends CordovaPlugin {
             }
 
             return true;
+        }else{
+            if(action.equals("solicitaPermissaoScan")){
+            try{
+                solicitaPermissaoScan();
+                callbackContext.success("Solicitado Permissoes");
+            }catch (Exception e){
+                callbackContext.error("Erro Permissao "+e.getMessage());
+            }
+
+            return true;
         }
       return true;
     }
     
     void solicitaPermissaoConnect(){
             cordova.requestPermission(this, REQUEST_BLUETOOTH_CONNECT, Manifest.permission.BLUETOOTH_CONNECT);
-            cordova.requestPermission(this, REQUEST_BLUETOOTH_SCAN, Manifest.permission.BLUETOOTH_SCAN);
+
+    }
+    void solicitarPermissaoScan(){
+           
+           cordova.requestPermission(this, REQUEST_BLUETOOTH_SCAN, Manifest.permission.BLUETOOTH_SCAN);
 
     }
     //list all bluetooth devices (return list of names)

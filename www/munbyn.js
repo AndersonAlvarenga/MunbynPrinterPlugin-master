@@ -13,7 +13,11 @@ var BTPrinter = {
    },
    solicitaPermissaoConnect: function(fnSuccess, fnError) {
         exec(fnSuccess, fnError, 'MunbynWrapper', 'solicitaPermissaoConnect', [])
+    },
+    solicitaPermissaoScan: function (fnSuccess, fnError) {
+        exec(fnSuccess, fnError, 'MunbynWrapper', 'solicitaPermissaoScan', [])
     }
+
 };
 
 module.exports = BTPrinter;
