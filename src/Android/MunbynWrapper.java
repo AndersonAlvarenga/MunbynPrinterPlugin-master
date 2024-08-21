@@ -72,10 +72,10 @@ public class MunbynWrapper extends CordovaPlugin {
                         long t= System.currentTimeMillis();
                         long end = t+5000;
                         Log.e(LOG_TAG, "Entrou 7");
-                        /*while(btService.mConnectedThread == null && System.currentTimeMillis() < end)
-                        {
-                            Log.e(LOG_TAG, "Entrou 8");
-                        }*/
+                        
+
+
+
                         Log.e(LOG_TAG, "Entrou 9");
                         if(btService.mConnectedThread == null)
                         {
