@@ -148,7 +148,7 @@ public class MunbynWrapper extends CordovaPlugin {
         }else
             if(action.equals("solicitaPermissaoScan")){
             try{
-                solicitaPermissaoScan();
+                solicitarPermissaoScan();
                 callbackContext.success("Solicitado Permissoes");
             }catch (Exception e){
                 callbackContext.error("Erro Permissao "+e.getMessage());
