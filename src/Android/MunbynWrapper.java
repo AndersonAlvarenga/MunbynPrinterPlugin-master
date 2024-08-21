@@ -145,7 +145,7 @@ public class MunbynWrapper extends CordovaPlugin {
             }
 
             return true;
-        }else{
+        }else
             if(action.equals("solicitaPermissaoScan")){
             try{
                 solicitaPermissaoScan();
